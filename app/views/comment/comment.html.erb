@@ -1,0 +1,44 @@
+<table border="1">
+  <tr>
+    <th>id</th>
+    <th>title</th>
+    <th>name</th>
+    <th>email</th>
+    <th>comments</th>
+    <th>day</th>
+    <% @comments.each do |comments| %>
+    <tr>
+      <td><%= comments.id %></td>
+      <td><%= comments.title %></td>
+      <td><%= comments.name %></td>
+      <td><%= comments.email %></td>
+      <td><%= comments.comments %></td>
+      <td><%= comments.day %></td>
+    </tr>
+    <%end%>
+</table>
+<%= form_for @comment do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %>
+    <%= f.text_area :comments %>
+  </div>
+  <div class="field">
+    <%= f.label :day %>
+    <%= f.text_field :day %>
+  </div>
+  <div class ="actions">
+    <%= f.submit "登録" %>
+  </div>
+<% end %>
