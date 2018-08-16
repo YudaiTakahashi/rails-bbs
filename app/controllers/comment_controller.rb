@@ -8,11 +8,11 @@ class CommentController < ApplicationController
   end
   def create
     @comment = Comment.new(comment_params)
-    @comments = Comment.all
     if @comment.save
       redirect_to comments_path
     else
-      render action: :comment
+      comment
+      render "comment"
     end
   end
 end
