@@ -1,7 +1,8 @@
 class CommentController < ApplicationController
   def comment
-    @comments = Comment.all
     @comment = Comment.new
+    @comments = Comment.all
+    @comments = Comment.limit(10).offset(0)
   end
   def comment_params
     params.require(:comment).permit(:id,:title,:name,:email,:comments,:day)
